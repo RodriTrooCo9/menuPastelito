@@ -102,7 +102,7 @@ const SweetJournalEntry = () => {
 
             <div className="bg-yellow-100 p-6 rounded-tl-3xl rounded-br-3xl shadow-md transform rotate-6 border-dashed border-2 border-yellow-300 hover:rotate-3 transition-transform">
               <p className="font-['Playfair_Display'] italic text-rose-800 text-lg leading-relaxed text-center">
-                "No eres solo un capítulo, eres la tinta."
+                "Eres una bella y dulce Pastelito"
               </p>
               <Heart size={16} className="mx-auto mt-2 text-rose-400 fill-current" />
             </div>
@@ -161,7 +161,7 @@ const SweetJournalEntry = () => {
                 </div>
 
                 <p>
-                  Eres, sin temor a la exageración, la persona más especial que ha cruzado el umbral de mi historia. Tienes esa capacidad rara y divina de alterar la gravedad de mi mundo, de hacer que todo lo demás pierda importancia frente a tu luz. No eres solo un capítulo en mi vida; te has convertido en la tinta con la que quiero escribir el resto del libro.
+                  Eres, sin temor a la exageración, la persona más especial que ha cruzado el umbral de mi historia. Tienes esa capacidad rara y divina de alterar la gravedad de mi mundo, de hacer que todo lo demás pierda importancia frente a tu luz. eres un pastelito te has convertido en la tinta con la que quiero escribir el resto del libro.
                 </p>
 
 
