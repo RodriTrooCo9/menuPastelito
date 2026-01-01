@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Heart, Sparkles, Cake, Coffee, PenTool, Star, Gift, Cookie, Candy } from 'lucide-react';
+import { Heart, Sparkles, Cake, Coffee, PenTool, Star, Gift, Cookie, Candy, Camera } from 'lucide-react';
 import recuerdo1 from './assets/recuerdo1.jpg';
 import recuerdo2 from './assets/recuerdo2.jpg';
 import recuerdo3 from './assets/recuerdo3.jpg';
@@ -8,8 +8,47 @@ import recuerdo5 from './assets/recuerdo5.jpg';
 import recuerdo6 from './assets/recuerdo6.jpg';
 import recuerdo7 from './assets/recuerdo7.jpg';
 
+import paseoLuces from './assets/paseo_luces.jpg';
+import plazaNoche from './assets/plaza_noche.jpg';
+import gatitoDuerme from './assets/gatito_duerme.jpg';
+import angelAnime from './assets/angel_anime.jpg';
+import espacioArte from './assets/espacio_arte.jpg';
+
+import MonthEntry from './MonthEntry';
+import GiftModal from './GiftModal';
+import CakeModal from './CakeModal';
+import { monthsData } from './data/monthsData';
+
 const SweetJournalEntry = () => {
   const [scrolled, setScrolled] = useState(0);
+
+  /* New State for Modal */
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [showGift, setShowGift] = useState(false);
+  const [showCake, setShowCake] = useState(false);
+
+
+
+  /* Months Data for Selector (Names) */
+  const months = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+
+  const handleMonthSelect = (month) => {
+    setSelectedMonth(month);
+    setIsModalOpen(false); // Close the selector modal
+  };
+
+  if (selectedMonth) {
+    const data = monthsData[selectedMonth] || {
+      title: `${selectedMonth.toUpperCase()}`,
+      paragraphs: ["Próximamente...", "Este mes aún no ha sido escrito."],
+      images: []
+    };
+    return <MonthEntry data={data} onClose={() => setSelectedMonth(null)} />;
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +64,61 @@ const SweetJournalEntry = () => {
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
       `}</style>
 
+      {/* Modal Overlay */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+          <div className="relative w-full max-w-2xl bg-white/40 backdrop-blur-xl rounded-[3rem] p-8 md:p-12 shadow-[0_0_50px_rgba(255,182,193,0.6)] border-4 border-white/50 animate-[scaleIn_0.4s_cubic-bezier(0.16,1,0.3,1)]">
+
+            {/* Close Button */}
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 p-2 rounded-full bg-white/60 hover:bg-white text-rose-400 hover:text-rose-600 transition-all shadow-sm"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+
+            {/* Title */}
+            <h3 className="text-4xl md:text-5xl font-['Caveat'] text-center text-rose-600 mb-8 drop-shadow-sm">
+              Selecciona un Mes Dulce
+            </h3>
+
+            {/* Grid of Months */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+              {months.map((month, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleMonthSelect(month)}
+                  className="group relative p-4 rounded-xl bg-white/50 hover:bg-white border-2 border-rose-100 hover:border-rose-300 transition-all hover:-translate-y-1 hover:shadow-lg overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-100/20 to-rose-200/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative z-10 font-serif text-rose-800 font-medium tracking-wide group-hover:tracking-wider transition-all">
+                    {month}
+                  </span>
+                  <div className="absolute -bottom-2 -right-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <Heart size={16} className="text-rose-400 rotate-12" fill="currentColor" />
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Decorative Sweets around Modal */}
+            <div className="absolute -top-6 -left-6 text-rose-300 rotate-[-20deg] animate-pulse">
+              <Candy size={48} />
+            </div>
+            <div className="absolute -bottom-8 -right-4 text-pink-400 rotate-[15deg]">
+              <Cookie size={52} />
+            </div>
+            <div className="absolute top-1/2 -right-8 text-rose-300 animate-[bounce_3s_infinite]">
+              <Heart size={32} fill="#fda4af" />
+            </div>
+            <div className="absolute bottom-10 -left-8 text-yellow-500/60 rotate-[45deg]">
+              <Star size={36} fill="#fde047" />
+            </div>
+
+          </div>
+        </div>
+      )}
+
       <div className="fixed inset-0 opacity-40 pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(#eecfd5 3px, transparent 3px)`,
@@ -33,22 +127,23 @@ const SweetJournalEntry = () => {
       </div>
 
 
+      {/* --- Floating Personal Photos (Replaced Generic) --- */}
       <div className="fixed top-20 -left-10 md:left-10 w-32 md:w-48 opacity-80 pointer-events-none animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]">
-        <img src="https://images.unsplash.com/photo-1551024709-3f277557d1b5?q=80&w=400&auto=format&fit=crop" className="rounded-full shadow-xl border-4 border-white rotate-12" alt="Dona" />
+        <img src={gatitoDuerme} className="rounded-full shadow-xl border-4 border-white rotate-12 h-32 md:h-48 object-cover" alt="Gatito" />
       </div>
 
       <div className="fixed top-40 -right-10 md:right-5 w-24 md:w-40 opacity-70 pointer-events-none hover:opacity-100 transition-opacity">
-        <img src="https://images.unsplash.com/photo-1626803775151-61d756612f9f?q=80&w=400&auto=format&fit=crop" className="rounded-xl shadow-lg border-4 border-white -rotate-12" alt="" />
+        <img src={angelAnime} className="rounded-xl shadow-lg border-4 border-white -rotate-12" alt="Angel" />
       </div>
 
 
       <div className="fixed bottom-40 left-5 w-28 md:w-36 opacity-60 pointer-events-none">
-        <img src="https://images.unsplash.com/photo-1582053433976-259fadd40e26?q=80&w=400&auto=format&fit=crop" className="rounded-full shadow-lg border-4 border-white rotate-45" alt="Dulces" />
+        <img src={espacioArte} className="rounded-full shadow-lg border-4 border-white rotate-45 h-28 md:h-36 object-cover" alt="Arte" />
       </div>
 
 
       <div className="fixed bottom-10 right-10 w-32 md:w-52 opacity-80 pointer-events-none animate-bounce" style={{ animationDuration: '8s' }}>
-        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=400&auto=format&fit=crop" className="rounded-2xl shadow-xl border-4 border-white -rotate-6" alt="Macarons" />
+        <img src={plazaNoche} className="rounded-2xl shadow-xl border-4 border-white -rotate-6" alt="Noche" />
       </div>
 
 
@@ -132,7 +227,7 @@ const SweetJournalEntry = () => {
                 </div>
 
                 <p className="lead first-letter:text-rose-500 first-letter:font-bold first-letter:text-5xl first-letter:float-left first-letter:mr-2">
-                Recordar nuestro tiempo es entender que la vida no se cuenta en fechas, sino en suspiros. Lo que hemos vivido no fueron simples días, fueron regalos del destino; tú fuiste esa dulce chispa que convirtió mi realidad en un sueño lleno de colores, borrando para siempre la soledad que habitaba en mí
+                  Recordar nuestro tiempo es entender que la vida no se cuenta en fechas, sino en suspiros. Lo que hemos vivido no fueron simples días, fueron regalos del destino; tú fuiste esa dulce chispa que convirtió mi realidad en un sueño lleno de colores, borrando para siempre la soledad que habitaba en mí
                 </p>
 
 
@@ -201,6 +296,26 @@ const SweetJournalEntry = () => {
                   <Star size={20} fill="currentColor" />
                   <Star size={16} fill="currentColor" />
                 </div>
+
+                <div className="flex justify-center gap-6 mt-8 pb-4">
+                  <button
+                    onClick={() => setShowGift(true)}
+                    className="p-3 bg-white rounded-full shadow-md text-rose-400 hover:text-rose-500 hover:scale-110 transition-all border border-rose-100 group" title="Regalo">
+                    <Gift size={24} className="group-hover:rotate-12 transition-transform" />
+                  </button>
+                  <button
+                    onClick={() => setShowCake(true)}
+                    className="p-3 bg-white rounded-full shadow-md text-rose-400 hover:text-rose-500 hover:scale-110 transition-all border border-rose-100 group" title="Pastel">
+                    <Cake size={24} className="group-hover:-rotate-12 transition-transform" />
+                  </button>
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="p-3 bg-white rounded-full shadow-md text-rose-400 hover:text-rose-500 hover:scale-110 transition-all border border-rose-100 group"
+                    title="Foto"
+                  >
+                    <Camera size={24} className="group-hover:rotate-12 transition-transform" />
+                  </button>
+                </div>
               </div>
 
             </div>
@@ -234,9 +349,77 @@ const SweetJournalEntry = () => {
 
         </div>
 
-      </main>
-    </div>
+
+        {/* --- NEW PHOTO STRIP SECTION --- */}
+        <div className="my-16 relative">
+          <div className="absolute inset-x-0 top-1/2 h-1 bg-rose-200 -z-10"></div>
+          <h3 className="text-center font-['Dancing_Script'] text-4xl text-rose-800 mb-8 bg-[#fff0f5] inline-block px-4 mx-auto block leading-tight">
+            Instantes Infinitos
+          </h3>
+
+          <div className="flex gap-4 overflow-x-auto pb-8 pt-4 px-4 snap-x custom-scrollbar">
+            <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-2 snap-center hover:scale-105 transition-transform">
+              <img src={paseoLuces} className="w-full h-full object-cover rounded-lg" />
+              <span className="absolute bottom-4 right-4 bg-white/80 px-2 rounded font-['Caveat'] text-lg">Luces ✨</span>
+            </div>
+            <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-2 snap-center hover:scale-105 transition-transform">
+              <img src={plazaNoche} className="w-full h-full object-cover rounded-lg" />
+            </div>
+            <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-1 snap-center hover:scale-105 transition-transform">
+              <img src={gatitoDuerme} className="w-full h-full object-cover rounded-lg" />
+              <span className="absolute top-4 left-4 text-3xl">🐱</span>
+            </div>
+            <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-3 snap-center hover:scale-105 transition-transform">
+              <img src={angelAnime} className="w-full h-full object-cover rounded-lg" />
+            </div>
+            <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-2 snap-center hover:scale-105 transition-transform">
+              <img src={espacioArte} className="w-full h-full object-cover rounded-lg" />
+            </div>
+            {/* Reuse some old ones to fill space */}
+            <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-1 snap-center hover:scale-105 transition-transform">
+              <img src={recuerdo3} className="w-full h-full object-cover rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+      </main >
+
+      {/* --- MONTH OVERLAYS --- */}
+      {/* This ensures they render ON TOP of the app without removing the app itself */}
+
+      {
+        selectedMonth === "Febrero" && (
+          <FebruaryEntry
+            data={monthsData["Febrero"]}
+            onClose={() => setSelectedMonth(null)}
+          />
+        )
+      }
+
+      {
+        selectedMonth && selectedMonth !== "Febrero" && (
+          <MonthEntry
+            data={monthsData[selectedMonth] || { title: selectedMonth, paragraphs: [], images: [] }}
+            onClose={() => setSelectedMonth(null)}
+          />
+        )
+      }
+
+      {/* Gift Modal Overlay */}
+      {
+        showGift && (
+          <GiftModal onClose={() => setShowGift(false)} />
+        )
+      }
+
+
+      {
+        showCake && (
+          <CakeModal onClose={() => setShowCake(false)} />
+        )
+      }
+
+    </div >
   );
 };
-
 export default SweetJournalEntry;
