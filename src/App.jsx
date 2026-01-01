@@ -132,7 +132,7 @@ const SweetJournalEntry = () => {
                 </div>
 
                 <p className="lead first-letter:text-rose-500 first-letter:font-bold first-letter:text-5xl first-letter:float-left first-letter:mr-2">
-                  Al mirar atrás y contemplar el horizonte del tiempo que hemos recorrido, me doy cuenta de que medir la vida en horas o en fechas de calendario es un error cuando se trata de ti. Este ciclo que cerramos no ha sido simplemente una sucesión de días, sino una colección de milagros dispersos en la rutina, un estallido de colores en lo que antes era un lienzo gris.
+                Recordar nuestro tiempo es entender que la vida no se cuenta en fechas, sino en suspiros. Lo que hemos vivido no fueron simples días, fueron regalos del destino; tú fuiste esa dulce chispa que convirtió mi realidad en un sueño lleno de colores, borrando para siempre la soledad que habitaba en mí
                 </p>
 
 
