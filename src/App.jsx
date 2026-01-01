@@ -22,7 +22,6 @@ import { monthsData } from './data/monthsData';
 const SweetJournalEntry = () => {
   const [scrolled, setScrolled] = useState(0);
 
-  /* New State for Modal */
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [showGift, setShowGift] = useState(false);
@@ -30,7 +29,6 @@ const SweetJournalEntry = () => {
 
 
 
-  /* Months Data for Selector (Names) */
   const months = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
@@ -38,7 +36,7 @@ const SweetJournalEntry = () => {
 
   const handleMonthSelect = (month) => {
     setSelectedMonth(month);
-    setIsModalOpen(false); // Close the selector modal
+    setIsModalOpen(false);
   };
 
   if (selectedMonth) {
@@ -64,12 +62,11 @@ const SweetJournalEntry = () => {
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
       `}</style>
 
-      {/* Modal Overlay */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
           <div className="relative w-full max-w-2xl bg-white/40 backdrop-blur-xl rounded-[3rem] p-8 md:p-12 shadow-[0_0_50px_rgba(255,182,193,0.6)] border-4 border-white/50 animate-[scaleIn_0.4s_cubic-bezier(0.16,1,0.3,1)]">
 
-            {/* Close Button */}
+   
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 p-2 rounded-full bg-white/60 hover:bg-white text-rose-400 hover:text-rose-600 transition-all shadow-sm"
@@ -77,12 +74,10 @@ const SweetJournalEntry = () => {
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
             </button>
 
-            {/* Title */}
             <h3 className="text-4xl md:text-5xl font-['Caveat'] text-center text-rose-600 mb-8 drop-shadow-sm">
               Selecciona un Mes Dulce
             </h3>
 
-            {/* Grid of Months */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
               {months.map((month, index) => (
                 <button
@@ -101,7 +96,7 @@ const SweetJournalEntry = () => {
               ))}
             </div>
 
-            {/* Decorative Sweets around Modal */}
+        
             <div className="absolute -top-6 -left-6 text-rose-300 rotate-[-20deg] animate-pulse">
               <Candy size={48} />
             </div>
@@ -127,7 +122,6 @@ const SweetJournalEntry = () => {
       </div>
 
 
-      {/* --- Floating Personal Photos (Replaced Generic) --- */}
       <div className="fixed top-20 -left-10 md:left-10 w-32 md:w-48 opacity-80 pointer-events-none animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]">
         <img src={gatitoDuerme} className="rounded-full shadow-xl border-4 border-white rotate-12 h-32 md:h-48 object-cover" alt="Gatito" />
       </div>
@@ -350,7 +344,6 @@ const SweetJournalEntry = () => {
         </div>
 
 
-        {/* --- NEW PHOTO STRIP SECTION --- */}
         <div className="my-16 relative">
           <div className="absolute inset-x-0 top-1/2 h-1 bg-rose-200 -z-10"></div>
           <h3 className="text-center font-['Dancing_Script'] text-4xl text-rose-800 mb-8 bg-[#fff0f5] inline-block px-4 mx-auto block leading-tight">
@@ -367,7 +360,7 @@ const SweetJournalEntry = () => {
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-1 snap-center hover:scale-105 transition-transform">
               <img src={gatitoDuerme} className="w-full h-full object-cover rounded-lg" />
-              <span className="absolute top-4 left-4 text-3xl">🐱</span>
+              <span className="absolute top-4 left-4 text-3xl">🐱 miau</span>
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-3 snap-center hover:scale-105 transition-transform">
               <img src={angelAnime} className="w-full h-full object-cover rounded-lg" />
@@ -375,7 +368,6 @@ const SweetJournalEntry = () => {
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-2 snap-center hover:scale-105 transition-transform">
               <img src={espacioArte} className="w-full h-full object-cover rounded-lg" />
             </div>
-            {/* Reuse some old ones to fill space */}
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-1 snap-center hover:scale-105 transition-transform">
               <img src={recuerdo3} className="w-full h-full object-cover rounded-lg" />
             </div>
@@ -383,9 +375,6 @@ const SweetJournalEntry = () => {
         </div>
 
       </main >
-
-      {/* --- MONTH OVERLAYS --- */}
-      {/* This ensures they render ON TOP of the app without removing the app itself */}
 
       {
         selectedMonth === "Febrero" && (
@@ -405,7 +394,6 @@ const SweetJournalEntry = () => {
         )
       }
 
-      {/* Gift Modal Overlay */}
       {
         showGift && (
           <GiftModal onClose={() => setShowGift(false)} />
