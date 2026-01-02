@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Heart, Mail, Sparkles, Cat, Flower, Cake, Star, Music, Coffee, Camera, Tea } from 'lucide-react';
+import { X, Heart, Mail, Sparkles, Cat, Flower, Cake, Star, Music, Coffee, Camera } from 'lucide-react';
 import recuerdo3 from './assets/recuerdo3.jpg';
 import gatitoDuerme from './assets/gatito_duerme.jpg';
 import paseoLuces from './assets/paseo_luces.jpg';
@@ -181,7 +181,7 @@ const CakeModal = ({ onClose }) => {
                                         <div className="absolute bottom-6 left-0 w-full text-center">
                                             <span className="font-['Dancing_Script'] text-3xl text-gray-600">:p</span>
                                             <div className="flex justify-center mt-1 gap-1">
-                                                <Tea size={16} className="text-rose-400 fill-current" />
+                                         
                                             </div>
                                         </div>
                                     </div>

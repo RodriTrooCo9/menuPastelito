@@ -8,16 +8,45 @@ import recuerdo5 from './assets/recuerdo5.jpg';
 import recuerdo6 from './assets/recuerdo6.jpg';
 import recuerdo7 from './assets/recuerdo7.jpg';
 
-import paseoLuces from './assets/paseo_luces.jpg';
+import cena4 from './assets/cena4.jpg';
 import plazaNoche from './assets/plaza_noche.jpg';
 import gatitoDuerme from './assets/gatito_duerme.jpg';
 import angelAnime from './assets/angel_anime.jpg';
 import espacioArte from './assets/espacio_arte.jpg';
-
+import importante from './assets/importante.jpg';
 import MonthEntry from './MonthEntry';
 import GiftModal from './GiftModal';
 import CakeModal from './CakeModal';
 import { monthsData } from './data/monthsData';
+import chikawa1 from './assets/chikawa1.jpg';
+import chikawa3 from './assets/chikawa3.jpg';
+import cena1 from './assets/cena1.jpg';
+import chikawa5 from './assets/chikawa5.jpg';
+import chikawa6 from './assets/chikawa6.jpg';
+import chiwawa2 from './assets/chiwawa2.jpg';
+import coptel from './assets/coptel.jpg';
+import favorita1 from './assets/favorita1.jpg';
+import furina from './assets/furina.jpg';
+import grupo1 from './assets/grupo1.jpg';
+import hachiware from './assets/hachiware.jpg';
+import hachiware2 from './assets/hachiware2.jpg';
+import hachiware3 from './assets/hachiware3.jpg';
+import leoAndYou from './assets/leo and you .jpg'; 
+import leoAndYou2 from './assets/leo and you2.jpg';
+import leo from './assets/leo.jpg';
+import leo2 from './assets/leo2.jpg';
+import leo3 from './assets/leo3.jpg';
+import leo4 from './assets/leo4.jpg';
+import leo6 from './assets/leo6.jpg';
+import leouwu from './assets/leouwu.jpg';
+import nicol1 from './assets/nicol1.jpg';
+import nicol2 from './assets/nicol2.jpg';
+import nicol3 from './assets/nicol3.jpg';
+import nicol4 from './assets/nicol4.jpg';
+import pastelito1 from './assets/pastelito1.jpg';
+import primera from './assets/primera.jpg';
+import primera2 from './assets/primera2.jpg';
+import gatito from './assets/gatito.jpg';
 
 const SweetJournalEntry = () => {
   const [scrolled, setScrolled] = useState(0);
@@ -132,12 +161,12 @@ const SweetJournalEntry = () => {
 
 
       <div className="fixed bottom-40 left-5 w-28 md:w-36 opacity-60 pointer-events-none">
-        <img src={espacioArte} className="rounded-full shadow-lg border-4 border-white rotate-45 h-28 md:h-36 object-cover" alt="Arte" />
+        <img src={cena4} className="rounded-full shadow-lg border-4 border-white rotate-45 h-28 md:h-36 object-cover" alt="Arte" />
       </div>
 
 
       <div className="fixed bottom-10 right-10 w-32 md:w-52 opacity-80 pointer-events-none animate-bounce" style={{ animationDuration: '8s' }}>
-        <img src={plazaNoche} className="rounded-2xl shadow-xl border-4 border-white -rotate-6" alt="Noche" />
+        <img src={cena1} className="rounded-2xl shadow-xl border-4 border-white -rotate-6" alt="Noche" />
       </div>
 
 
@@ -327,7 +356,7 @@ const SweetJournalEntry = () => {
 
             <div className="bg-white p-3 pb-8 shadow-xl transform rotate-6 border border-gray-100 w-48 ml-auto relative hover:rotate-3 transition-transform">
               <div className="absolute -top-2 -right-2 w-8 h-8 bg-rose-400 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md animate-bounce">
-                Love
+                uwu
               </div>
               <img src={recuerdo5} className="w-full h-32 object-cover bg-gray-100 mb-3 grayscale-[20%]" alt="Cookies" />
               <div className="text-center font-['Caveat'] text-xl text-gray-500">Dulces recuerdos</div>
@@ -352,24 +381,33 @@ const SweetJournalEntry = () => {
 
           <div className="flex gap-4 overflow-x-auto pb-8 pt-4 px-4 snap-x custom-scrollbar">
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-2 snap-center hover:scale-105 transition-transform">
-              <img src={paseoLuces} className="w-full h-full object-cover rounded-lg" />
+              <img src={pastelito1} className="w-full h-full object-cover rounded-lg" />
               <span className="absolute bottom-4 right-4 bg-white/80 px-2 rounded font-['Caveat'] text-lg">Luces ✨</span>
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-2 snap-center hover:scale-105 transition-transform">
-              <img src={plazaNoche} className="w-full h-full object-cover rounded-lg" />
+              <img src={leoAndYou2} className="w-full h-full object-cover rounded-lg" />
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-1 snap-center hover:scale-105 transition-transform">
               <img src={gatitoDuerme} className="w-full h-full object-cover rounded-lg" />
               <span className="absolute top-4 left-4 text-3xl">🐱 miau</span>
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-3 snap-center hover:scale-105 transition-transform">
-              <img src={angelAnime} className="w-full h-full object-cover rounded-lg" />
+              <img src={importante} className="w-full h-full object-cover rounded-lg" />
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform rotate-2 snap-center hover:scale-105 transition-transform">
-              <img src={espacioArte} className="w-full h-full object-cover rounded-lg" />
+              <img src={leo2} className="w-full h-full object-cover rounded-lg" />
             </div>
             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-1 snap-center hover:scale-105 transition-transform">
               <img src={recuerdo3} className="w-full h-full object-cover rounded-lg" />
+            </div>
+             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-1 snap-center hover:scale-105 transition-transform">
+              <img src={chikawa6} className="w-full h-full object-cover rounded-lg" />
+            </div>
+             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-1 snap-center hover:scale-105 transition-transform">
+              <img src={hachiware3} className="w-full h-full object-cover rounded-lg" />
+            </div>
+             <div className="flex-shrink-0 w-64 h-64 bg-white p-3 rounded-xl shadow-lg transform -rotate-1 snap-center hover:scale-105 transition-transform">
+              <img src={gatito} className="w-full h-full object-cover rounded-lg" />
             </div>
           </div>
         </div>
